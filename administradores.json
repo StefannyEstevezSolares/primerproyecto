@@ -1,0 +1,25 @@
+[
+    {
+
+       "Stefanny": {
+        "contrasena" : "05151996",
+        "tipo" : "instructor"
+    
+
+       },
+
+       "Dennis": {
+        "contrasena" : "03301996",
+        "tipo": "instructor" 
+
+       },
+
+       "Estudardo": {
+        "contrasena" : "04231999",
+        "tipo" : "instructor"
+
+       }
+    
+
+    }
+]
