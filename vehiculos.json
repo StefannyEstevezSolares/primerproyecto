@@ -1,4 +1,14 @@
 {
-    
-
+    "P001AAA": {
+        "tipo": "convertible",
+        "disponible": true
+    },
+    "P002BBB": {
+        "tipo": "sedan",
+        "disponible": true
+    },
+    "P003BBB": {
+        "tipo": "hatchback",
+        "disponible": false
+    }
 }

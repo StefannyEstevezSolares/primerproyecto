@@ -1,13 +1,17 @@
 from menus import menu_instructores as instructores, menu_citas as citas, menu_clientes as clientes, menu_instructores as instructores, menu_princial as principal, menu_vehiculos as vehiculos, opcion
-from funcionalidades import leer_json, escribir_json
+from funcionalidades import leer_json, escribir_json, consultar_auto, consultar, consultar_cita
+
+
 def menu_principal():
     while True: 
         principal()
         opc = opcion()
         if opc == 1:
-            print("GESTION DE CLIENTES")
+            if iniciar_sesion() != False:
+                menu_clientes()
         elif opc == 2:
-            print("GESTIÓN DE INSTRUCTORES")
+            if iniciar_sesion == "instructor":
+                menu_instructores()
         elif opc == 3: 
             print("GESTIÓN DE VEHICULOS")
         elif opc == 4:
@@ -26,7 +30,7 @@ def menu_clientes():
         if opc == 1:
             print("Registrar Cliente")
         elif opc == 2:
-            print("Consultar Cliente")
+            consultar()
         elif opc == 3: 
             print("Historial Cliente")
         elif opc == 4: 
@@ -59,7 +63,7 @@ def menu_vehiculos():
         if opc == 1:
             print("Registrar Vehiculo")
         elif opc == 2:
-            print("Consultar Vehículo")
+            consultar_auto
         elif opc == 3: 
             print("Volver al menú anterior") 
             break
@@ -74,7 +78,7 @@ def menu_citas():
         if opc == 1:
             print("Programar cita")
         elif opc == 2:
-            print("Consultar citas")
+            consultar_cita()
         elif opc == 3: 
             print("Historial de citas(todas)") 
             break
@@ -86,15 +90,19 @@ def menu_citas():
 archivo_usuarios = "usuarios.json"
 
 
-def iniciar_sesion_cliente():
-    nombre = ("Ingrese su usuario")
-    password = ("Ingrese su contraseña")
+def iniciar_sesion():
+    nombre = input("Ingrese su usuario")
+    clave = input("Ingrese su contraseña")
     usuarios = leer_json(archivo_usuarios)
-    user = usuarios.get(nombre, None)
-    if user != None:
-        
+    usuario = usuarios.get(nombre, None)
+    if usuario != None:
+        if usuario["contrasena"] == clave:
+            input("ENTER PARA CONTINUAR")
+            return usuario["tipo"]
+        else:
+            print("Contraseña Incorrecta")
+            input("ENTER PARA CONTINUAR")
+            return False
 
-    else:
-        print("usuario no existe")
-        return False
 
+menu_principal()

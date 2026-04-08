@@ -1,0 +1,27 @@
+{
+    "Stefanny": {
+        "contrasena": "05151996",
+        "tipo": "instructor",
+        "especialidad" : "moto",
+        "disponible" : true
+        
+    },
+    "Dennis": {
+        "contrasena": "03301996",
+        "tipo": "instructor",
+        "especialidad": "carro",
+        "disponible" : true
+    },
+    "Estudardo": {
+        "contrasena": "04231999",
+        "tipo": "instructor",
+        "especialidad" : "carro",
+        "disponible" : true
+    },
+    "Estuardo": {
+        "contrasena": "5054505",
+        "tipo": "instructor ",
+        "especialidad": "moto",
+        "disponible" : false
+    }
+}

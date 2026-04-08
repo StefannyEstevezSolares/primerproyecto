@@ -1,0 +1,17 @@
+{
+    "001" : {
+        "cliente": "Stefanny",
+        "instructor_asigado": "Dennis",
+        "tipo_auto": "convertible",
+        "fecha" : "04/08/2026",
+        "hora" : "09:00",
+        "duracion": "1h",
+        "observaciones:": "",
+        "asistencia" : ""
+
+
+    }
+
+
+
+}
