@@ -5,6 +5,9 @@ archivo_vehiculos = "vehiculos.json"
 archivo_citas = "citas.json"
 archivo_instructores = "instructores.json"
 
+
+#FUNCIONES JSON
+
 def leer_json(archivito):
     respuesta = {}
     with open(archivito, "r") as archivo:
@@ -16,14 +19,24 @@ def escribir_json(archivito, contenido):
         guardar = dumps(contenido, indent=4)
         archivo.write(guardar)
 
+
+#FUNCIONES PARA CONSULTAR
+
 def consultar(usuario):
     usuarios = leer_json(archivo_usuarios)
     datos = usuarios.get(usuario)
     if datos:
-        print(f"Nombre de usuario : {usuario}, {datos}")
+        print(f"Nombre de usuario :{datos}")
     else:
         print("Dato no encontrado")
 
+def consultar_instructores(usuario):
+    usuarios = leer_json(archivo_instructores)
+    datos = usuarios.get(usuario)
+    if datos:
+        print(f"Datos del vehículo:{datos}")
+    else:
+        print("Dato no encontrado")
 
 def consultar_auto(placa):
     auto = leer_json(archivo_vehiculos)
@@ -42,6 +55,9 @@ def consultar_cita(id_cita):
     else:
         print("Dato no encontrado")
 
+
+#FUNCIONES PARA REGISTRAR
+
 def input_cliente():
     nombre = input("Ingrese el nombre del cliente")
     id = input("Ingrese el id del cliente")
@@ -59,12 +75,11 @@ def input_cliente():
 def input_vehiculo():
     placa = input("Ingrese la placa del vehiculo")
     tipo = input("¿Qué tipo de vehículo es este?")
-    disponible = input("¿Está disponible?")
+   
 
     vehiculo = {
         "placa" : placa,
         "tipo" : tipo,
-        "disponible" : disponible
 
     }
     
@@ -78,14 +93,13 @@ def input_instructores():
     contrasena = input("Ingrese la contrasea del nuevo instructor")
     tipo = input("¿Qué tipo de usuario es este?")
     especialidad = input("¿Cuál es la especialidad de este instructor")
-    disponible = input("¿El instructor está disponible?")
+    
 
     nuevo_usuario = {
         "nombre" : nombre,
         "contrasena" : contrasena,
         "tipo" : tipo,
         "especialidad" : especialidad,
-        "disponible" : disponible
 
     }
     

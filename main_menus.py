@@ -1,17 +1,15 @@
 from menus import menu_instructores as instructores, menu_citas as citas, menu_clientes as clientes, menu_instructores as instructores, menu_princial as principal, menu_vehiculos as vehiculos, opcion
-from funcionalidades import leer_json, escribir_json, consultar_auto, consultar, consultar_cita
-
+from funcionalidades import leer_json, escribir_json, consultar_auto, consultar, consultar_cita, consultar_instructores
+from funcionalidades import input_citas, input_cliente, input_instructores, input_vehiculo
 
 def menu_principal():
     while True: 
         principal()
         opc = opcion()
         if opc == 1:
-            if iniciar_sesion() != False:
-                menu_clientes()
+            menu_clientes()
         elif opc == 2:
-            if iniciar_sesion == "instructor":
-                menu_instructores()
+            menu_instructores()
         elif opc == 3: 
             print("GESTIÓN DE VEHICULOS")
         elif opc == 4:
@@ -28,7 +26,7 @@ def menu_clientes():
         clientes()
         opc = opcion()
         if opc == 1:
-            print("Registrar Cliente")
+            input_cliente()
         elif opc == 2:
             consultar()
         elif opc == 3: 
@@ -41,15 +39,14 @@ def menu_clientes():
 
 #GESTION DE INSTRUCTORES
 
-
 def menu_instructores():
     while True: 
         instructores()
         opc = opcion()
         if opc == 1:
-            print("Registrar Instructor")
+            input_instructores()
         elif opc == 2:
-            print("Consultar Instructor")
+            consultar_instructores()
         elif opc == 3: 
             print("Volver al menú anterior") 
             break
@@ -61,7 +58,7 @@ def menu_vehiculos():
         vehiculos()
         opc = opcion()
         if opc == 1:
-            print("Registrar Vehiculo")
+            input_vehiculo()
         elif opc == 2:
             consultar_auto
         elif opc == 3: 
@@ -76,7 +73,7 @@ def menu_citas():
         citas()
         opc = opcion()
         if opc == 1:
-            print("Programar cita")
+            input_citas()
         elif opc == 2:
             consultar_cita()
         elif opc == 3: 
@@ -88,21 +85,6 @@ def menu_citas():
 #GESTION DE USUARIOS
 
 archivo_usuarios = "usuarios.json"
-
-
-def iniciar_sesion():
-    nombre = input("Ingrese su usuario")
-    clave = input("Ingrese su contraseña")
-    usuarios = leer_json(archivo_usuarios)
-    usuario = usuarios.get(nombre, None)
-    if usuario != None:
-        if usuario["contrasena"] == clave:
-            input("ENTER PARA CONTINUAR")
-            return usuario["tipo"]
-        else:
-            print("Contraseña Incorrecta")
-            input("ENTER PARA CONTINUAR")
-            return False
 
 
 menu_principal()
