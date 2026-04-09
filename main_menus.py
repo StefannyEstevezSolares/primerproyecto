@@ -1,6 +1,6 @@
 from menus import menu_instructores as instructores, menu_citas as citas, menu_clientes as clientes, menu_instructores as instructores, menu_princial as principal, menu_vehiculos as vehiculos, opcion
-from funcionalidades import leer_json, escribir_json, consultar_auto, consultar, consultar_cita, consultar_instructores
-from funcionalidades import input_citas, input_cliente, input_instructores, input_vehiculo
+from funcionalidades import leer_json, escribir_json, consultar_auto, consultar, consultar_instructores
+from funcionalidades import input_citas, input_cliente, input_instructores, input_vehiculo , buscar_cita , buscar_historial , buscar_historial_cliente
 
 def menu_principal():
     while True: 
@@ -11,9 +11,9 @@ def menu_principal():
         elif opc == 2:
             menu_instructores()
         elif opc == 3: 
-            print("GESTIÓN DE VEHICULOS")
+            menu_vehiculos
         elif opc == 4:
-            print("GESTION DE CITAS")
+            menu_citas()
         elif opc == 5: 
             print("SALIR") 
             break
@@ -30,9 +30,9 @@ def menu_clientes():
         elif opc == 2:
             consultar()
         elif opc == 3: 
-            print("Historial Cliente")
+            buscar_historial_cliente()
         elif opc == 4: 
-            print("Volver al menú anterior") 
+            menu_principal
             break
         else:
             print("Valor invalido")
@@ -48,7 +48,7 @@ def menu_instructores():
         elif opc == 2:
             consultar_instructores()
         elif opc == 3: 
-            print("Volver al menú anterior") 
+            menu_principal()
             break
         else:
             print("Valor invalido")
@@ -60,7 +60,7 @@ def menu_vehiculos():
         if opc == 1:
             input_vehiculo()
         elif opc == 2:
-            consultar_auto
+            consultar_auto()
         elif opc == 3: 
             print("Volver al menú anterior") 
             break
@@ -75,7 +75,9 @@ def menu_citas():
         if opc == 1:
             input_citas()
         elif opc == 2:
-            consultar_cita()
+            buscar_historial_cliente()
+        elif opc == 3:
+            buscar_historial()
         elif opc == 3: 
             print("Historial de citas(todas)") 
             break

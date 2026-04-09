@@ -1,19 +1,14 @@
 {
     "Stefanny": {
-        "contrasena": "05151996",
-        "id": "4563214"
+        "id": "45632148"
     },
     "Dennis": {
-        "contrasena": "03301996",
-        "tipo": "instructor"
+        "id": "75654123"
     },
     "Estudardo": {
-        "contrasena": "04231999",
-        "tipo": "instructor",
-        "especialidad" : "carro"
+        "id": "54789654"
     },
     "Estuardo": {
-        "nombre": "Estuardo",
-        "id": "456123"
+        "id": "66545455"
     }
 }

@@ -47,16 +47,22 @@ def consultar_auto(placa):
         print("Dato no encontrado")
 
 
-def consultar_cita(id_cita):
-    cita = leer_json(archivo_citas)
-    datos = cita.get(id_cita)
-    if datos:
-        print(f"Datos de la cita: {datos}")
-    else:
-        print("Dato no encontrado")
+def buscar_cita():
+
+    palabra = input("Ingrese la fecha o el nombre que desea filtrar")
+
+    datos = leer_json(archivo_citas)
+
+    for info in datos:
+        if palabra in datos[info]["cliente"] or palabra in datos[info]["fecha"]:
+            print(datos[info])
+        else:
+            print("Ingrese una opción válida")
 
 
 #FUNCIONES PARA REGISTRAR
+
+
 
 def input_cliente():
     nombre = input("Ingrese el nombre del cliente")
@@ -106,29 +112,94 @@ def input_instructores():
     datos = leer_json(archivo_instructores)
     datos[nombre] = nuevo_usuario
 
+
+
+
+def buscar_historial_cliente():
+
+    palabra = input("Ingrese el id o el nombre del cliente")
+
+    datos = leer_json(archivo_citas)
+
+    for info in datos:
+        if palabra in datos[info]["id"]:
+            print(datos[info])
+        else:
+            print("Ingrese una opción válida")
+
+
+def buscar_historial():
+
+    datos = leer_json(archivo_citas)
+    for info in datos:
+        print(datos[info])
+        
+
+
+#Validación de citas
+
+
 def input_citas():
-    id = input("Ingrese el nuevo id de la cita")
-    cliente = input("Ingrese nombre del cliente")
-    instructor_asignado = input("Ingrese el instructor asignado")
-    tipo_auto = input("¿Cuál es el tipo de auto")
-    fecha = input("¿Cuál es la fecha de la cita?")
-    hora = input("Ingrese la hora de la cita en un formato de 24 horas(ejemplo: 18:00))")
-    duracion = input("Ingrese la duración de la cita 1 o 2 horas")
-    #observaciones = input("Ingrese observaciones que pueda tener acerca de la cita")
 
-    nuevo_usuario = {
-        "id" : id,
-        "instructor_asignado" : instructor_asignado,
-        "tipo_auto" : tipo_auto,
-        "fecha" : fecha,
-        "hora" : hora,
-        "duracion" : duracion
+    instructor_asignado = input("Ingrese el instructor asignado: ").strip().title()
+    id_cita = input("Ingrese el nuevo id de la cita: ").strip()
+    cliente = input("Ingrese nombre del cliente: ").strip().title()
+    tipo_auto = input("¿Cuál es el tipo de auto? ").strip().lower()
+    fecha = input("¿Cuál es la fecha de la cita? ")
+    hora = input("Ingrese la hora (24h, ej: 18:00): ")
+    duracion = input("Ingrese la duración (1 o 2 horas): ")
 
-    }
     
-    datos = leer_json(archivo_instructores)
-    datos[nombre] = nuevo_usuario
+    instructores = leer_json("instructores.json")
+    vehiculos = leer_json("vehiculos.json")
+    citas = leer_json("citas.json")
 
-    escribir_json(archivo_vehiculos, datos)
+
+    if instructor_asignado not in instructores:
+        print("El instructor no existe")
+        return
+
+    instructor = instructores[instructor_asignado]
+
+    if not instructor["disponible"]:
+        print("El instructor no está disponible")
+        return
+
+    if instructor["especialidad"] != tipo_auto:
+        print("El instructor no tiene esa especialidad")
+        return
+
+    vehiculo_encontrado = None
+
+    for placa, datos in vehiculos.items():
+        if datos["tipo"] == tipo_auto and datos["disponible"]:
+            vehiculo_encontrado = placa
+            break
+
+    if vehiculo_encontrado is None:
+        print("No hay vehículos disponibles para ese tipo")
+        return
+
+    nueva_cita = {
+        "id": id_cita,
+        "cliente": cliente,
+        "instructor": instructor_asignado,
+        "vehiculo": vehiculo_encontrado,
+        "tipo_auto": tipo_auto,
+        "fecha": fecha,
+        "hora": hora,
+        "duracion": duracion
+    }
+
+    citas[id_cita] = nueva_cita
+    escribir_json("citas.json", citas)
+
+    instructores[instructor_asignado]["disponible"] = False
+    vehiculos[vehiculo_encontrado]["disponible"] = False
+
+    escribir_json("instructores.json", instructores)
+    escribir_json("vehiculos.json", vehiculos)
+
+    print("Cita registrada con éxito")
 
 
