@@ -1,32 +1,24 @@
 {
-    "001" : {
+    "001": {
         "cliente": "Stefanny",
-        "id" : "4563214",
+        "id": "4563214",
         "instructor_asigado": "Dennis",
         "tipo_auto": "convertible",
-        "fecha" : "04/08/2026",
-        "hora" : "09:00",
+        "fecha": "04/08/2026",
+        "hora": "09:00",
         "duracion": "1h",
-        "observaciones:": "",
-        "asistencia" : ""
-
-
+        "asistencia": false,
+        "comentario": " LLeg\u00f3 tarde "
     },
-
-    "002" : {
+    "002": {
         "cliente": "Stefanny",
-        "id" : "4563214",
+        "id": "4563214",
         "instructor_asigado": "Totoro",
         "tipo_auto": "convertible",
-        "fecha" : "04/08/2026",
-        "hora" : "09:00",
+        "fecha": "04/08/2026",
+        "hora": "09:00",
         "duracion": "1h",
-        "observaciones:": "",
-        "asistencia" : ""
-
-
+        "asistencia": true,
+        "comentario": " Pesimo"
     }
-
-
-
 }

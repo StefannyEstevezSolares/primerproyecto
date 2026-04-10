@@ -1,4 +1,4 @@
-from json import load, dumps
+from json import dumps, load
 
 archivo_usuarios = "usuarios.json"
 archivo_vehiculos = "vehiculos.json"
@@ -21,6 +21,9 @@ def escribir_json(archivito, contenido):
 
 
 #FUNCIONES PARA CONSULTAR
+
+def mini_verification(mensaje = "Presione ENTER para continuar ..."):
+    input(f"\n{mensaje}")
 
 def consultar(usuario):
     usuarios = leer_json(archivo_usuarios)
@@ -136,8 +139,7 @@ def buscar_historial():
         
 
 
-#Validación de citas
-
+#VALIDACIÓN DE HISTORIAL Y CITAS
 
 def input_citas():
 
@@ -201,5 +203,93 @@ def input_citas():
     escribir_json("vehiculos.json", vehiculos)
 
     print("Cita registrada con éxito")
+
+def escribir_comentario():
+    
+    citas= leer_json("citas.json")
+
+    id_citas = input("Ingrese el ID de la cita para buscar la cita que desea comentar")
+
+    if id_citas in citas:
+        print(citas[id_citas])
+
+    else:
+        print("Registro inválido")
+        
+    opc = 0
+
+    while True:
+    
+        opc = int(input("""¿Desea agregar un comentario?
+                    
+                    1. Si
+                    2. Volver
+              """))
+        
+        
+        
+        if opc == 1: 
+            comentar= input("Escriba su comentario")
+            citas[id_citas]["comentario"] = comentar
+
+            escribir_json("citas.json" , citas)
+        
+            print("Comentario Ingresado Correctamente")
+            break
+
+        elif opc == 2:
+            break
+
+
+def manipular_asistencia():
+
+    citas = leer_json("citas.json")
+    id_citas = input("Ingrese el ID de la cita a modificar")
+        
+    if id_citas in citas:
+        print(citas[id_citas])
+    else:
+        print("Registro inválido")
+
+    opc = 0
+    while True:
+        opc = int(input("""Presione las siguientes opciones para modificar la asistencia:
+               
+                    1. Usuario si asistió
+                    2. Usuario no asisitió
+                    3. Volver
+                    
+                    "Ingrese    """))
+        
+        if opc == 1:
+            
+            citas[id_citas]["asistencia"] = True
+            escribir_json("citas.json", citas)
+            print(f" La asistencia para cita {id_citas} se modificó con éxito")
+
+        elif opc == 2:
+            citas[id_citas]["asistencia"] = False
+            escribir_json("citas.json", citas)
+            print(f" La asistencia para cita {id_citas} se modificó con éxito")
+
+
+        elif opc == 3:
+            break
+
+def mostrar_asistencias(value):
+    
+    citas = leer_json("citas.json")
+    for id_citas, datos in citas.items():
+        if datos ["asistencia"] == value:
+            print(datos)
+
+
+escribir_comentario()
+
+
+
+
+
+
 
 
