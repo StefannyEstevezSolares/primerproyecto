@@ -108,57 +108,78 @@ def buscar_cita():
 
 
 def input_cliente():
-    nombre = input("Ingrese el nombre del cliente")
-    id = input("Ingrese el id del cliente")
+    nombre = input("Ingrese el nombre del nuevo cliente: ").strip().title()
+    id_cliente = input("Ingrese el ID del nuevo cliente: ")
 
-    cliente = {
-        "nombre" : nombre,
-        "id" : id 
-    }
-    
     datos = leer_json(archivo_usuarios)
-    datos[nombre] = cliente
+
+    for clave, valor in datos.items():
+        if valor["id"] == id_cliente:
+            print("El usuario con ese ID ya existe")
+            return
+
+    telefono = input("Ingrese el numero de celular del cliente: ")
+
+    datos[nombre] = {
+        "id": id_cliente,
+        "telefono": telefono
+    }
 
     escribir_json(archivo_usuarios, datos)
 
-    print("Cliente registrado con éxito")
-    mini_verification("Ingrese ENTER para volver al MENÚ DE CLIENTES ...")
+    print("El cliente ingresado ha sido guardado exitosamente")
 
-def input_vehiculo():
-    placa = input("Ingrese la placa del vehiculo")
-    tipo = input("¿Qué tipo de vehículo es este?")
-   
+    mini_verification()
 
-    vehiculo = {
-        "placa" : placa,
-        "tipo" : tipo,
 
-    }
+def input_vehiculos():
+    placa_id = input("Ingrese la placa del vehículo: ").strip().upper()
     
-    datos = leer_json(archivo_usuarios)
-    datos[placa] = vehiculo
+    datos = leer_json(archivo_vehiculos)
+
+    if placa_id in datos:
+        print("El vehículo con esa placa ya existe")
+        return
+
+    tipo = input("Ingrese si es moto o auto: ").strip().lower()
+
+    datos[placa_id] = {
+        "tipo": tipo,
+        "disponible": True
+    }
 
     escribir_json(archivo_vehiculos, datos)
-    mini_verification("Ingrese ENTER para volver al MENÚ DE VEHICULOS ...")
+
+    print("El vehículo ha sido guardado exitosamente")
+
+    mini_verification()
+
 
 
 def input_instructores():
-    nombre = input("Ingrese el nombre del nuevo instructor")
-    contrasena = input("Ingrese la contrasea del nuevo instructor")
-    tipo = input("¿Qué tipo de usuario es este?")
-    especialidad = input("¿Cuál es la especialidad de este instructor")
-    
+    nombre = input("Ingrese el nombre del instructor: ").strip().title()
+    id_instructor = input("Ingrese el ID del instructor: ").strip()
 
-    nuevo_usuario = {
-        "nombre" : nombre,
-        "contrasena" : contrasena,
-        "tipo" : tipo,
-        "especialidad" : especialidad,
-
-    }
-    
     datos = leer_json(archivo_instructores)
-    datos[nombre] = nuevo_usuario
+
+    for clave, valor in datos.items():
+        if valor["id"] == id_instructor:
+            print("El instructor con ese ID ya existe")
+            return
+
+    especialidad = input("Ingrese si es instructor para carro o moto: ").strip().lower()
+
+    datos[nombre] = {
+        "id": id_instructor,
+        "especialidad": especialidad,
+        "disponible": True
+    }
+
+    escribir_json(archivo_instructores, datos)
+
+    print("El instructor ingresado ha sido guardado exitosamente")
+
+    mini_verification()
 
 
 
@@ -226,155 +247,4 @@ def mostrar_historial_completo():
             print("Ingrese una opción válida")
     mini_verification()
         
-
-#VALIDACIÓN DE HISTORIAL Y CITAS
-
-def input_citas():
-
-    instructor_asignado = input("Ingrese el instructor asignado: ").strip().title()
-    id_cita = input("Ingrese el nuevo id de la cita: ").strip()
-    cliente = input("Ingrese nombre del cliente: ").strip().title()
-    tipo_auto = input("¿Cuál es el tipo de auto? ").strip().lower()
-    fecha = input("¿Cuál es la fecha de la cita? ")
-    hora = input("Ingrese la hora (24h, ej: 18:00): ")
-    duracion = input("Ingrese la duración (1 o 2 horas): ")
-
-    
-    instructores = leer_json("instructores.json")
-    vehiculos = leer_json("vehiculos.json")
-    citas = leer_json("citas.json")
-
-
-    if instructor_asignado not in instructores:
-        print("El instructor no existe")
-        return
-
-    instructor = instructores[instructor_asignado]
-
-    if not instructor["disponible"]:
-        print("El instructor no está disponible")
-        return
-
-    if instructor["especialidad"] != tipo_auto:
-        print("El instructor no tiene esa especialidad")
-        return
-
-    vehiculo_encontrado = None
-
-    for placa, datos in vehiculos.items():
-        if datos["tipo"] == tipo_auto and datos["disponible"]:
-            vehiculo_encontrado = placa
-            break
-
-    if vehiculo_encontrado is None:
-        print("No hay vehículos disponibles para ese tipo")
-        return
-
-    nueva_cita = {
-        "id": id_cita,
-        "cliente": cliente,
-        "instructor": instructor_asignado,
-        "vehiculo": vehiculo_encontrado,
-        "tipo_auto": tipo_auto,
-        "fecha": fecha,
-        "hora": hora,
-        "duracion": duracion
-    }
-
-    citas[id_cita] = nueva_cita
-    escribir_json("citas.json", citas)
-
-    instructores[instructor_asignado]["disponible"] = False
-    vehiculos[vehiculo_encontrado]["disponible"] = False
-
-    escribir_json("instructores.json", instructores)
-    escribir_json("vehiculos.json", vehiculos)
-
-    print("Cita registrada con éxito")
-
-def escribir_comentario():
-    
-    citas= leer_json("citas.json")
-
-    id_citas = input("Ingrese el ID de la cita para buscar la cita que desea comentar")
-
-    if id_citas in citas:
-        print(citas[id_citas])
-
-    else:
-        print("Registro inválido")
-        
-    opc = 0
-
-    while True:
-    
-        opc = int(input("""¿Desea agregar un comentario?
-                    
-                    1. Si
-                    2. Volver
-              """))
-        
-        
-        
-        if opc == 1: 
-            comentar= input("Escriba su comentario")
-            citas[id_citas]["comentario"] = comentar
-
-            escribir_json("citas.json" , citas)
-        
-            print("Comentario Ingresado Correctamente")
-            break
-
-        elif opc == 2:
-            break
-
-
-def manipular_asistencia():
-
-    citas = leer_json("citas.json")
-    id_citas = input("Ingrese el ID de la cita a modificar")
-        
-    if id_citas in citas:
-        print(citas[id_citas])
-    else:
-        print("Registro inválido")
-
-    opc = 0
-    while True:
-        opc = int(input("""Presione las siguientes opciones para modificar la asistencia:
-               
-                    1. Usuario si asistió
-                    2. Usuario no asisitió
-                    3. Volver
-                    
-                    "Ingrese    """))
-        
-        if opc == 1:
-            
-            citas[id_citas]["asistencia"] = True
-            escribir_json("citas.json", citas)
-            print(f" La asistencia para cita {id_citas} se modificó con éxito")
-
-        elif opc == 2:
-            citas[id_citas]["asistencia"] = False
-            escribir_json("citas.json", citas)
-            print(f" La asistencia para cita {id_citas} se modificó con éxito")
-
-
-        elif opc == 3:
-            break
-
-def mostrar_asistencias(value):
-    
-    citas = leer_json("citas.json")
-    for id_citas, datos in citas.items():
-        if datos ["asistencia"] == value:
-            print(datos)
-            
-
-
-
-
-
-
 

@@ -1,23 +1,27 @@
 {
     "Stefanny": {
         "id": "45632148",
-        "especialidad" : "moto",
-        "disponible" : true
-        
+        "especialidad": "moto",
+        "disponible": true
     },
     "Dennis": {
         "id": "45632248",
         "especialidad": "carro",
-        "disponible" : true
+        "disponible": true
     },
     "Estudardo": {
         "id": "54789654",
-        "especialidad" : "carro",
-        "disponible" : true
+        "especialidad": "carro",
+        "disponible": true
     },
     "Estuardo": {
         "id": "54789655",
         "especialidad": "moto",
-        "disponible" : false
+        "disponible": true
+    },
+    "Alejandro Maiver": {
+        "id": "3003",
+        "especialidad": "carro",
+        "disponible": true
     }
 }

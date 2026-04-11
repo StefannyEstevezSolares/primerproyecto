@@ -1,6 +1,8 @@
 from menus import menu_instructores as instructores, menu_citas as citas, menu_clientes as clientes, menu_instructores as instructores, menu_princial as principal, menu_vehiculos as vehiculos, opcion
-from funcionalidades import consultar_vehiculo,  consultar_instructores, consultar_cliente , buscar_historial_cliente, 
-from funcionalidades import input_citas, input_cliente, input_instructores, input_vehiculo , mostrar_historial_completo , buscar_historial_cliente , mostrar_todos_clientes
+from funcionalidades import consultar_vehiculo,  consultar_instructores, consultar_cliente , buscar_historial_cliente, mini_verification
+from funcionalidades import input_cliente, input_instructores, input_vehiculos, mostrar_historial_completo , buscar_historial_cliente , mostrar_todos_clientes
+from funcionalidades_citas import buscar_cliente_nombre_fecha, mostrar_asistencias, manipular_asistencia, escribir_comentario, pedir_fecha, pedir_hora, input_cita
+
 
 def menu_principal():
     while True: 
@@ -60,7 +62,7 @@ def menu_vehiculos():
         vehiculos()
         opc = opcion()
         if opc == 1:
-            input_vehiculo()
+            input_vehiculos()
         elif opc == 2:
             consultar_vehiculo()
         elif opc == 3: 
@@ -75,15 +77,24 @@ def menu_citas():
         citas()
         opc = opcion()
         if opc == 1:
-            input_citas()
+            input_cita()
         elif opc == 2:
-            buscar_historial_cliente()
+            buscar_cliente_nombre_fecha()
         elif opc == 3:
-            buscar_historial()
-        elif opc == 3: 
-            print("Historial de citas(todas)") 
+            buscar_historial_cliente()
+        elif opc == 4:
+            mostrar_historial_completo()
+        elif opc == 5: 
+            mostrar_asistencias(True)
+        elif opc == 6:
+            mostrar_asistencias(False)
+        elif opc == 7:
+            manipular_asistencia()
+        elif opc == 8:
+            escribir_comentario()
+        elif opc == 9:
+            print("Volver al menú anterior")
             break
         else:
             print("Valor invalido")
 
-menu_principal()

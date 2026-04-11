@@ -9,6 +9,6 @@
     },
     "P003BBB": {
         "tipo": "carro",
-        "disponible": false
+        "disponible": true
     }
 }

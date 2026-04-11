@@ -11,8 +11,7 @@
         "comentario": " LLeg\u00f3 tarde ",
         "estado_de_cita": "completada"
     },
-
-      "002": {
+    "002": {
         "cliente_id": "4563214",
         "cliente_nombre": "Stefanny",
         "instructor_asigado": "Dennis",
@@ -24,8 +23,7 @@
         "comentario": " LLeg\u00f3 tarde ",
         "estado_de_cita": "completada"
     },
-
-      "003": {
+    "003": {
         "cliente_id": "4553214",
         "cliente_nombre": "Sofia Morales",
         "instructor_asigado": "Dennis",

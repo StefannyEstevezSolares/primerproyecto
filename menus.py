@@ -57,13 +57,14 @@ def menu_citas():
 =======================MENÚ DE CITAS=======================
           
           1. Programar citas
-          2. Consultar historial de citas por cliente
-          3. Consultar historial entero
-          4. Consultar historial de clientes que asistieron
-          5. Consultar historial de clientes que no asistieron
-          6. Modificar asistencia
-          7. Agregar observaciones
-          8. Volver al menú principal 
+          2. Consultar citas por cliente o fecha
+          3. Consultar historial de citas por cliente
+          4. Consultar historial entero
+          5. Consultar historial de clientes que asistieron
+          6. Consultar historial de clientes que no asistieron
+          7. Modificar asistencia
+          8. Agregar observaciones
+          9. Volver al menú principal 
 
           """)
     
