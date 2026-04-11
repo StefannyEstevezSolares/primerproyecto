@@ -98,4 +98,3 @@ def menu_citas():
         else:
             print("Valor invalido")
 
-menu_principal()

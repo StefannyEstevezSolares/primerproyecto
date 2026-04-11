@@ -14,5 +14,9 @@
     "P000EEE": {
         "tipo": "moto",
         "disponible": true
+    },
+    "1": {
+        "tipo": "auto",
+        "disponible": true
     }
 }

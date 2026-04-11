@@ -3,10 +3,10 @@ from datetime import datetime
 
 #DICCIONARIOS PARA LOS ARCHIVOS JSON
 
-archivo_usuarios = "usuarios.json"
-archivo_vehiculos = "vehiculos.json"
-archivo_citas = "citas.json"
-archivo_instructores = "instructores.json"
+archivo_usuarios = "data/usuarios.json"
+archivo_vehiculos = "data/vehiculos.json"
+archivo_citas = "data/citas.json"
+archivo_instructores = "data/instructores.json"
 
 
 #FUNCIONES JSON
@@ -54,7 +54,7 @@ def pedir_hora():
 
 def escribir_comentario():
     
-    citas= leer_json("citas.json")
+    citas= leer_json("data/citas.json")
 
     id_citas = input("Ingrese el ID de la cita para buscar la cita que desea comentar")
 
@@ -80,7 +80,7 @@ def escribir_comentario():
             comentar= input("Escriba su comentario")
             citas[id_citas]["comentario"] = comentar
 
-            escribir_json("citas.json" , citas)
+            escribir_json("data/citas.json" , citas)
         
             print("Comentario Ingresado Correctamente")
             break
@@ -91,7 +91,7 @@ def escribir_comentario():
 
 def manipular_asistencia():
 
-    citas = leer_json("citas.json")
+    citas = leer_json("data/citas.json")
     id_citas = input("Ingrese el ID de la cita a modificar")
         
     if id_citas in citas:
@@ -112,12 +112,12 @@ def manipular_asistencia():
         if opc == 1:
             
             citas[id_citas]["asistencia"] = True
-            escribir_json("citas.json", citas)
+            escribir_json("data/citas.json", citas)
             print(f" La asistencia para cita {id_citas} se modificó con éxito")
 
         elif opc == 2:
             citas[id_citas]["asistencia"] = False
-            escribir_json("citas.json", citas)
+            escribir_json("data/citas.json", citas)
             print(f" La asistencia para cita {id_citas} se modificó con éxito")
 
 
@@ -126,7 +126,7 @@ def manipular_asistencia():
 
 def mostrar_asistencias(value):
     
-    citas = leer_json("citas.json")
+    citas = leer_json("data/citas.json")
     for id_citas, datos in citas.items():
         if datos ["asistencia"] == value:
             print(datos)

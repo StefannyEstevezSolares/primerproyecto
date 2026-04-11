@@ -1,9 +1,9 @@
 from json import dumps, load
 
-archivo_usuarios = "usuarios.json"
-archivo_vehiculos = "vehiculos.json"
-archivo_citas = "citas.json"
-archivo_instructores = "instructores.json"
+archivo_usuarios = "data/usuarios.json"
+archivo_vehiculos = "data/vehiculos.json"
+archivo_citas = "data/citas.json"
+archivo_instructores = "data/instructores.json"
 
 
 #FUNCIONES JSON
@@ -196,12 +196,13 @@ def buscar_historial_cliente():
 
         if opc == 1:
             palabra = input("Ingrese el id del cliente")
-
+            existeDato = False
             for info in datos:
                 if palabra == datos[info]["cliente_id"]:
                     print(datos[info], "\n")
-
-            print("Revise el id ingresado, dato no encontrado")
+                    existeDato = True
+            if not existeDato:
+                print("Revise el id ingresado, dato no encontrado")
 
         elif opc == 2:
             break
