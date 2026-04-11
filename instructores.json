@@ -1,22 +1,22 @@
 {
     "Stefanny": {
-        "tipo": "instructor",
+        "id": "45632148",
         "especialidad" : "moto",
         "disponible" : true
         
     },
     "Dennis": {
-        "tipo": "instructor",
+        "id": "45632248",
         "especialidad": "carro",
         "disponible" : true
     },
     "Estudardo": {
-        "tipo": "instructor",
+        "id": "54789654",
         "especialidad" : "carro",
         "disponible" : true
     },
     "Estuardo": {
-        "tipo": "instructor ",
+        "id": "54789655",
         "especialidad": "moto",
         "disponible" : false
     }

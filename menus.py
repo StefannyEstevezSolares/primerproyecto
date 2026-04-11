@@ -18,8 +18,9 @@ def menu_clientes():
           
           1. Registrar cliente
           2. Consultar cliente
-          3. Historial de cliente
-          4. Volver al menú principal 
+          3. Mostrar todos los clientes
+          4. Historial por cliente
+          5. Volver al menú principal 
 
 
           """)

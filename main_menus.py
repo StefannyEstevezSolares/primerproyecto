@@ -1,6 +1,6 @@
 from menus import menu_instructores as instructores, menu_citas as citas, menu_clientes as clientes, menu_instructores as instructores, menu_princial as principal, menu_vehiculos as vehiculos, opcion
-from funcionalidades import leer_json, escribir_json, consultar_auto, consultar, consultar_instructores
-from funcionalidades import input_citas, input_cliente, input_instructores, input_vehiculo , buscar_cita , buscar_historial , buscar_historial_cliente
+from funcionalidades import consultar_vehiculo,  consultar_instructores, consultar_cliente , buscar_historial_cliente, 
+from funcionalidades import input_citas, input_cliente, input_instructores, input_vehiculo , mostrar_historial_completo , buscar_historial_cliente , mostrar_todos_clientes
 
 def menu_principal():
     while True: 
@@ -11,7 +11,7 @@ def menu_principal():
         elif opc == 2:
             menu_instructores()
         elif opc == 3: 
-            menu_vehiculos
+            menu_vehiculos()
         elif opc == 4:
             menu_citas()
         elif opc == 5: 
@@ -28,11 +28,13 @@ def menu_clientes():
         if opc == 1:
             input_cliente()
         elif opc == 2:
-            consultar()
-        elif opc == 3: 
-            buscar_historial_cliente()
+            consultar_cliente()
+        elif opc == 3:
+            mostrar_todos_clientes()
         elif opc == 4: 
-            menu_principal
+            buscar_historial_cliente()
+        elif opc == 5: 
+            menu_principal()
             break
         else:
             print("Valor invalido")
@@ -60,7 +62,7 @@ def menu_vehiculos():
         if opc == 1:
             input_vehiculo()
         elif opc == 2:
-            consultar_auto()
+            consultar_vehiculo()
         elif opc == 3: 
             print("Volver al menú anterior") 
             break
@@ -83,10 +85,5 @@ def menu_citas():
             break
         else:
             print("Valor invalido")
-
-#GESTION DE USUARIOS
-
-archivo_usuarios = "usuarios.json"
-
 
 menu_principal()

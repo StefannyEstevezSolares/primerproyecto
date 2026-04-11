@@ -1,24 +1,40 @@
 {
     "001": {
-        "cliente": "Stefanny",
-        "id": "4563214",
+        "cliente_id": "4563214",
+        "cliente_nombre": "Stefanny",
         "instructor_asigado": "Dennis",
-        "tipo_auto": "convertible",
+        "tipo_vehiculo": "carro",
         "fecha": "04/08/2026",
         "hora": "09:00",
         "duracion": "1h",
         "asistencia": false,
-        "comentario": " LLeg\u00f3 tarde "
+        "comentario": " LLeg\u00f3 tarde ",
+        "estado_de_cita": "completada"
     },
-    "002": {
-        "cliente": "Stefanny",
-        "id": "4563214",
-        "instructor_asigado": "Totoro",
-        "tipo_auto": "convertible",
-        "fecha": "04/08/2026",
+
+      "002": {
+        "cliente_id": "4563214",
+        "cliente_nombre": "Stefanny",
+        "instructor_asigado": "Dennis",
+        "tipo_vehiculo": "carro",
+        "fecha": "04/09/2026",
         "hora": "09:00",
         "duracion": "1h",
         "asistencia": true,
-        "comentario": " Pesimo"
+        "comentario": " LLeg\u00f3 tarde ",
+        "estado_de_cita": "completada"
+    },
+
+      "003": {
+        "cliente_id": "4553214",
+        "cliente_nombre": "Sofia Morales",
+        "instructor_asigado": "Dennis",
+        "tipo_vehiculo": "carro",
+        "fecha": "04/08/2026",
+        "hora": "09:00",
+        "duracion": "1h",
+        "asistencia": false,
+        "comentario": " LLeg\u00f3 tarde ",
+        "estado_de_cita": "completada"
     }
 }
