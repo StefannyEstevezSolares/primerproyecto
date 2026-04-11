@@ -220,6 +220,7 @@ def mostrar_todos_clientes():
 
         if opc == 1:
             for info in datos:
+                print(info)
                 print(datos[info], "\n")
         elif opc == 2:
             break

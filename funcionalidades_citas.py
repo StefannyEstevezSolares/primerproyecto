@@ -190,13 +190,16 @@ def input_cita():
     instructor_id = input("Ingrese el id del instructor que ingresará a la cita: ")
 
     instructor_aprobado = None
-    for clave, valor in instructores.items():
+    instructorKey = None
+    for cl, valor in instructores.items():
         if valor['id'] == instructor_id:
+            instructorKey = cl
             instructor_aprobado = valor
             break
 
     if not instructor_aprobado:
-        return "El instructor no existe en el sistema"
+        print("El instructor no existe en el sistema")
+        return
 
     if instructor_aprobado['disponible'] != True:
         print("El instructor no está disponible")
@@ -209,7 +212,8 @@ def input_cita():
         instructor_cita = valor["instructor_asigado"]
 
         if fecha_apartada == fecha and hora_apartada == hora and estado == "apartado" and instructor_cita == instructor_id:
-            return "El instructor y la fecha ya están apartados"
+            print("El instructor ya tiene una cita apartada para esa fecha y hora, por favor elija otro horario o instructor")
+            return
 
     while True:
         print("\n")
@@ -263,12 +267,13 @@ def input_cita():
     escribir_json(archivo_citas, citas)
 
     vehiculos[vehiculo_seleccionado]["disponible"] = False
-    instructores[instructor_aprobado]["disponible"] = False
+    instructores[instructorKey]
+    instructores[instructorKey]["disponible"] = False
 
     escribir_json(archivo_vehiculos, vehiculos)
     escribir_json(archivo_instructores, instructores)
 
+    print("La cita ha sido programada exitosamente")
     return True
 
 
-input_cita()

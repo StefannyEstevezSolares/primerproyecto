@@ -1,14 +1,18 @@
 {
     "P001AAA": {
         "tipo": "moto",
-        "disponible": true
+        "disponible": false
     },
     "P002BBB": {
         "tipo": "moto",
-        "disponible": true
+        "disponible": false
     },
     "P003BBB": {
         "tipo": "carro",
+        "disponible": false
+    },
+    "P000EEE": {
+        "tipo": "moto",
         "disponible": true
     }
 }

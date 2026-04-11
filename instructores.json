@@ -2,7 +2,7 @@
     "Stefanny": {
         "id": "45632148",
         "especialidad": "moto",
-        "disponible": true
+        "disponible": false
     },
     "Dennis": {
         "id": "45632248",
@@ -12,7 +12,7 @@
     "Estudardo": {
         "id": "54789654",
         "especialidad": "carro",
-        "disponible": true
+        "disponible": false
     },
     "Estuardo": {
         "id": "54789655",
@@ -22,6 +22,11 @@
     "Alejandro Maiver": {
         "id": "3003",
         "especialidad": "carro",
+        "disponible": false
+    },
+    "Yanni Milla": {
+        "id": "3005",
+        "especialidad": "moto",
         "disponible": true
     }
 }

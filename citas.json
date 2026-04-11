@@ -34,5 +34,53 @@
         "asistencia": false,
         "comentario": " LLeg\u00f3 tarde ",
         "estado_de_cita": "completada"
+    },
+    "4": {
+        "cliente_id": "3001",
+        "cliente_nombre": "Stefanny Solares",
+        "instructor_asigado": "3003",
+        "tipo_vehiculo": "carro",
+        "fecha": "2026-04-13",
+        "hora": "10:00",
+        "asistencia": false,
+        "comentario": "",
+        "duracion": "1",
+        "estado_de_cita": "apartado"
+    },
+    "5": {
+        "cliente_id": "3001",
+        "cliente_nombre": "dsfasdfds",
+        "instructor_asigado": "3003",
+        "tipo_vehiculo": "carro",
+        "fecha": "2026-03-03",
+        "hora": "10:00",
+        "asistencia": false,
+        "comentario": "",
+        "duracion": "1",
+        "estado_de_cita": "apartado"
+    },
+    "6": {
+        "cliente_id": "3004",
+        "cliente_nombre": "Alejandra Rodriguez",
+        "instructor_asigado": "45632148",
+        "tipo_vehiculo": "moto",
+        "fecha": "2026-04-14",
+        "hora": "12:00",
+        "asistencia": false,
+        "comentario": "",
+        "duracion": "1",
+        "estado_de_cita": "apartado"
+    },
+    "7": {
+        "cliente_id": "75654123",
+        "cliente_nombre": "Dennis Molineros",
+        "instructor_asigado": "54789654",
+        "tipo_vehiculo": "moto",
+        "fecha": "2026-04-17",
+        "hora": "12:00",
+        "asistencia": false,
+        "comentario": "Pesimo para manejar",
+        "duracion": "1",
+        "estado_de_cita": "apartado"
     }
 }
