@@ -6,95 +6,118 @@ from funcionalidades_citas import buscar_cliente_nombre_fecha, mostrar_asistenci
 
 def menu_principal():
     while True: 
-        principal()
-        opc = opcion()
-        if opc == 1:
-            menu_clientes()
-        elif opc == 2:
-            menu_instructores()
-        elif opc == 3: 
-            menu_vehiculos()
-        elif opc == 4:
-            menu_citas()
-        elif opc == 5: 
-            print("SALIR") 
-            break
-        else:
-            print("Valor invalido")
+        try:
+            principal()
+            opc = opcion()
+            if opc == 1:
+                menu_clientes()
+            elif opc == 2:
+                menu_instructores()
+            elif opc == 3: 
+                menu_vehiculos()
+            elif opc == 4:
+                menu_citas()
+            elif opc == 5: 
+                print("SALIR") 
+                break
+            else:
+                print("Valor invalido")
+        except:
+            print("Ingrese un caracter válido")
+            menu_principal()
 
 
 def menu_clientes():
     while True: 
-        clientes()
-        opc = opcion()
-        if opc == 1:
-            input_cliente()
-        elif opc == 2:
-            consultar_cliente()
-        elif opc == 3:
-            mostrar_todos_clientes()
-        elif opc == 4: 
-            buscar_historial_cliente()
-        elif opc == 5: 
-            menu_principal()
-            break
-        else:
-            print("Valor invalido")
+        try:
+            clientes()
+            opc = opcion()
+            if opc == 1:
+                input_cliente()
+            elif opc == 2:
+                consultar_cliente()
+            elif opc == 3:
+                mostrar_todos_clientes()
+            elif opc == 4: 
+                buscar_historial_cliente()
+            elif opc == 5: 
+                menu_principal()
+                break
+            else:
+                print("Valor invalido")
+        except:
+            print("Ingrese un caracter válido")
+            
+        
 
 #GESTION DE INSTRUCTORES
 
 def menu_instructores():
     while True: 
-        instructores()
-        opc = opcion()
-        if opc == 1:
-            input_instructores()
-        elif opc == 2:
-            consultar_instructores()
-        elif opc == 3: 
-            menu_principal()
-            break
-        else:
-            print("Valor invalido")
+        try:
+            instructores()
+            opc = opcion()
+            if opc == 1:
+                input_instructores()
+            elif opc == 2:
+                consultar_instructores()
+            elif opc == 3: 
+                menu_principal()
+                break
+            else:
+                print("Valor invalido")
+        except:
+            print("Ingrese un caracter válido")
+            
 
 def menu_vehiculos():
     while True: 
-        vehiculos()
-        opc = opcion()
-        if opc == 1:
-            input_vehiculos()
-        elif opc == 2:
-            consultar_vehiculo()
-        elif opc == 3: 
-            print("Volver al menú anterior") 
-            break
-        else:
-            print("Valor invalido")
+        try:
+            vehiculos()
+            opc = opcion()
+            if opc == 1:
+                input_vehiculos()
+            elif opc == 2:
+                consultar_vehiculo()
+            elif opc == 3: 
+                print("Volver al menú anterior") 
+                break
+            else:
+                print("Valor invalido")
+        except:
+            print("Ingrese un caracter válido")
+            
+
 
 
 def menu_citas():
     while True: 
-        citas()
-        opc = opcion()
-        if opc == 1:
-            input_cita()
-        elif opc == 2:
-            buscar_cliente_nombre_fecha()
-        elif opc == 3:
-            buscar_historial_cliente()
-        elif opc == 4:
-            mostrar_historial_completo()
-        elif opc == 5: 
-            mostrar_asistencias(True)
-        elif opc == 6:
-            mostrar_asistencias(False)
-        elif opc == 7:
-            manipular_asistencia()
-        elif opc == 8:
-            escribir_comentario()
-        elif opc == 9:
-            print("Volver al menú anterior")
-            break
-        else:
-            print("Valor invalido")
+        try:
+            citas()
+            opc = opcion()
+            if opc == 1:
+                input_cita()
+            elif opc == 2:
+                buscar_cliente_nombre_fecha()
+            elif opc == 3:
+                buscar_historial_cliente()
+            elif opc == 4:
+                mostrar_historial_completo()
+            elif opc == 5: 
+                mostrar_asistencias(True)
+            elif opc == 6:
+                mostrar_asistencias(False)
+            elif opc == 7:
+                manipular_asistencia()
+            elif opc == 8:
+                escribir_comentario()
+            elif opc == 9:
+                print("Volver al menú anterior")
+                break
+            else:
+                print("Valor invalido")
+        except:
+            print("Ingrese un caracter válido")
+            
+        
 

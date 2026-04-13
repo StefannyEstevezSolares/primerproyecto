@@ -67,27 +67,28 @@ def escribir_comentario():
     opc = 0
 
     while True:
-    
-        opc = int(input("""¿Desea agregar un comentario?
-                    
-                    1. Si
-                    2. Volver
-              """))
-        
-        
-        
-        if opc == 1: 
-            comentar= input("Escriba su comentario")
-            citas[id_citas]["comentario"] = comentar
+        try:
+            opc = int(input("""¿Desea agregar un comentario?
+                        
+                        1. Si
+                        2. Volver
+                """))
+            
+            
+            
+            if opc == 1: 
+                comentar= input("Escriba su comentario")
+                citas[id_citas]["comentario"] = comentar
 
-            escribir_json("data/citas.json" , citas)
-        
-            print("Comentario Ingresado Correctamente")
-            break
+                escribir_json("data/citas.json" , citas)
+            
+                print("Comentario Ingresado Correctamente")
+                break
 
-        elif opc == 2:
-            break
-
+            elif opc == 2:
+                break
+        except:
+            print("Ingrese un valor válido")
 
 def manipular_asistencia():
 
@@ -101,29 +102,32 @@ def manipular_asistencia():
 
     opc = 0
     while True:
-        opc = int(input("""Presione las siguientes opciones para modificar la asistencia:
-               
-                    1. Usuario si asistió
-                    2. Usuario no asisitió
-                    3. Volver
-                    
-                    "Ingrese    """))
-        
-        if opc == 1:
+        try:
+            opc = int(input("""Presione las siguientes opciones para modificar la asistencia:
+                
+                        1. Usuario si asistió
+                        2. Usuario no asisitió
+                        3. Volver
+                        
+                        "Ingrese    """))
             
-            citas[id_citas]["asistencia"] = True
-            escribir_json("data/citas.json", citas)
-            print(f" La asistencia para cita {id_citas} se modificó con éxito")
+            if opc == 1:
+                
+                citas[id_citas]["asistencia"] = True
+                escribir_json("data/citas.json", citas)
+                print(f" La asistencia para cita {id_citas} se modificó con éxito")
 
-        elif opc == 2:
-            citas[id_citas]["asistencia"] = False
-            escribir_json("data/citas.json", citas)
-            print(f" La asistencia para cita {id_citas} se modificó con éxito")
+            elif opc == 2:
+                citas[id_citas]["asistencia"] = False
+                escribir_json("data/citas.json", citas)
+                print(f" La asistencia para cita {id_citas} se modificó con éxito")
 
 
-        elif opc == 3:
-            break
-
+            elif opc == 3:
+                break
+        except:
+            print("Ingrese una entrada válida")
+            
 def mostrar_asistencias(value):
     
     citas = leer_json("data/citas.json")

@@ -15,8 +15,8 @@
         "tipo": "moto",
         "disponible": true
     },
-    "1": {
-        "tipo": "auto",
+    "": {
+        "tipo": "carro",
         "disponible": true
     }
 }
