@@ -1,8 +1,8 @@
-from menus import menu_instructores as instructores, menu_citas as citas, menu_clientes as clientes, menu_instructores as instructores, menu_princial as principal, menu_vehiculos as vehiculos, opcion
+from menus import menu_evaluaciones as evaluaciones, menu_instructores as instructores, menu_citas as citas, menu_clientes as clientes, menu_instructores as instructores, menu_princial as principal, menu_vehiculos as vehiculos, opcion
 from funcionalidades import consultar_vehiculo,  consultar_instructores, consultar_cliente , buscar_historial_cliente, mini_verification
 from funcionalidades import input_cliente, input_instructores, input_vehiculos, mostrar_historial_completo , buscar_historial_cliente , mostrar_todos_clientes
 from funcionalidades_citas import buscar_cliente_nombre_fecha, mostrar_asistencias, manipular_asistencia, escribir_comentario, pedir_fecha, pedir_hora, input_cita
-
+from funcionalidades_evaluaciones import input_evaluacion , consultar_evaluaciones, calcular_promedio_general
 
 def menu_principal():
     while True: 
@@ -18,8 +18,10 @@ def menu_principal():
             elif opc == 4:
                 menu_citas()
             elif opc == 5: 
-                print("SALIR") 
-                break
+                menu_evaluaciones()
+            elif opc == 6:
+                print("Saliendo del programa ...")
+                break                
             else:
                 print("Valor invalido")
         except:
@@ -118,6 +120,25 @@ def menu_citas():
                 print("Valor invalido")
         except:
             print("Ingrese un caracter válido")
-            
+
+def menu_evaluaciones():
+    while True: 
+        try:
+            evaluaciones()
+            opc = opcion()
+            if opc == 1:
+                input_evaluacion()
+            elif opc == 2:
+                consultar_evaluaciones()
+            elif opc == 3: 
+                calcular_promedio_general() 
+            elif opc == 4:
+                print("Volver al menú anterior")
+                break
+            else:
+                print("Valor invalido")
+        except:
+            print("Ingrese un caracter válido")
         
+
 

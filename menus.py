@@ -7,7 +7,8 @@ def menu_princial():
           2. Gestión de instructores
           3. Gestión de vehículos
           4. Gestión de citas
-          5. PARA SALIR
+          5. Gestion de evaluaciones
+          6. PARA SALIR
           
 """)
 
@@ -68,6 +69,18 @@ def menu_citas():
 
           """)
     
+def menu_evaluaciones():
+    print("""
+
+=======================MENÚ DE EVALUACIONES=======================
+          
+          1. Registrar nueva evaluación
+          2. Consultar evaluaciones por estudiante
+          3. Calcular promedio general
+          4. Volver al menú principal
+
+          """)
+
 
 def separador():
     print("="*50)

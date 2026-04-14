@@ -1,0 +1,30 @@
+{
+    "005": {
+        "id_estudiante": "546546",
+        "nombre_estudiante": "Stefanny L",
+        "instructor_asigado": "Alejandro Maiver",
+        "fecha": "2026-04-20",
+        "calificacion": 85
+    },
+    "46564": {
+        "id_estudiante": "6546546546",
+        "nombre_estudiante": "Stefanny L",
+        "instructor_asigado": "Alejandro Maiver",
+        "fecha": "2026-04-10",
+        "calificacion": 700
+    },
+    "64565465": {
+        "id_estudiante": "566666",
+        "nombre_estudiante": "Stefanny L",
+        "instructor_asigado": "Alejandro Maiver",
+        "fecha": "2026-04-14",
+        "calificacion": 100
+    },
+    "003": {
+        "id_estudiante": "78888",
+        "nombre_estudiante": "Stefanny Sol",
+        "instructor_asigado": "Alejandro Maiver",
+        "fecha": "2026-04-15",
+        "calificacion": 85.5
+    }
+}
